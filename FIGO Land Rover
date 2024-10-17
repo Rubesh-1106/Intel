@@ -1,0 +1,82 @@
+public class RoomFSM {
+  
+    private static final int ROOM0 = 0;
+    private static final int ROOM1 = 1;
+    private static final int ROOM2 = 2;
+    private static final int ROOM3 = 3;
+    private static final int ROOM4 = 4;
+    private static final int ROOM5 = 5;
+    private static final int ROOM6 = 6;
+    private static final int ROOM7 = 7;
+
+   
+    private int currentState;
+
+   
+    public RoomFSM() {
+        currentState = ROOM0; // Start at ROOM0
+    }
+
+   
+    public void reset() {
+        currentState = ROOM0;
+        System.out.println("FSM reset to ROOM0");
+    }
+
+   
+    public void move() {
+        switch (currentState) {
+            case ROOM0:
+                currentState = ROOM1;
+                break;
+            case ROOM1:
+                currentState = ROOM2;
+                break;
+            case ROOM2:
+                currentState = ROOM3;
+                break;
+            case ROOM3:
+                currentState = ROOM4;
+                break;
+            case ROOM4:
+                currentState = ROOM5;
+                break;
+            case ROOM5:
+                currentState = ROOM6;
+                break;
+            case ROOM6:
+                currentState = ROOM7;
+                break;
+            case ROOM7:
+                currentState = ROOM0; // Loop back to ROOM0
+                break;
+        }
+        System.out.println("Moved to Room: " + currentState);
+    }
+
+    
+    public void stay() {
+        System.out.println("Staying in Room: " + currentState);
+    }
+
+    
+    public int getCurrentRoom() {
+        return currentState;
+    }
+
+    
+    public static void main(String[] args) {
+        RoomFSM fsm = new RoomFSM();
+
+        
+        fsm.move(); 
+        fsm.move(); 
+        fsm.stay(); 
+        fsm.move(); 
+        fsm.move(); 
+
+      
+        fsm.reset();
+        fsm.move(); 
+    }
+}
