@@ -1,0 +1,39 @@
+public class RoomFSMTest {
+    public static void main(String[] args) throws InterruptedException {
+        RoomFSM fsm = new RoomFSM();
+
+        // Test case 1: Move from Room0 to Room1
+        System.out.println("Test case 1: Figo moves from Room0 to Room1");
+        fsm.move();  // Moves to Room1
+        Thread.sleep(1000);  // Delay to simulate clock cycles
+
+        // Test case 2: Stay in Room1
+        System.out.println("Test case 2: Figo stays in Room1");
+        fsm.stay();  // Stays in Room1
+        Thread.sleep(1000);  // Delay to simulate clock cycles
+
+        // Test case 3: Move from Room1 to Room2
+        System.out.println("Test case 3: Figo moves from Room1 to Room2");
+        fsm.move();  // Moves to Room2
+        Thread.sleep(1000);  // Delay to simulate clock cycles
+
+        // Test case 4: Move from Room2 to Room3
+        System.out.println("Test case 4: Figo moves from Room2 to Room3");
+        fsm.move();  // Moves to Room3
+        Thread.sleep(1000);  // Delay to simulate clock cycles
+
+        // Add more test cases as necessary
+
+        // Reset the FSM after test cases
+        System.out.println("Resetting FSM");
+        fsm.reset();
+        Thread.sleep(1000);  // Delay to simulate clock cycles
+
+        // Test case 5: Move again after reset
+        System.out.println("Test case 5: Move from Room0 to Room1 after reset");
+        fsm.move(); 
+        Thread.sleep(1000);  
+
+        System.out.println("Test Completed.");
+    }
+}
